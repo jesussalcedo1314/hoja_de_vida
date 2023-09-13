@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" href="css/css.css">
+    <meta charset="utf-8" />
+    <title>Gravedad</title>
+  </head>
+  <body style="background-image: url('public/planeta.jpg');">
+      <center><h1 class="titulo"> Gravedad de diferentes planetas </h1> </center>
+      <div id="fondo"> 
+        <div id="pelota"></div>
+      </div>
+      <div class="linea">
+        <button class="botones" onclick="movimiento(3)">Tierra 9.81m/s²</button>
+        <button class="botones" onclick="movimiento(6)">Mercurio 2.78m/s²</button>   
+        <button class="botones" onclick="movimiento(3,5)">Venus 8.87m/s²</button>   
+        <button class="botones" onclick="movimiento(8)">Luna 1.62m/s²</button>   
+        <button class="botones" onclick="movimiento(5)">Marte 3.72m/s²</button>   
+        <button class="botones" onclick="movimiento(2)">Jupiter 22.88m/s²</button>   
+        <button class="botones" onclick="movimiento(3)">Saturno 9.05m/s²</button>   
+        <button class="botones" onclick="movimiento(3.5)">Urano 7.77m/s²</button>
+      </div>
+      <script>
+        function movimiento(tiempos){
+          var pelota = document.getElementById("pelota");
+          var fondo = document.getElementById("fondo");
+          const piso = fondo.clientHeight-pelota.clientHeight;
+          const tiempo = tiempos;
+          pelota.style.transition = `transform linear ${tiempo}s`;
+          pelota.style.transform = `translateY(${piso}px)`;
+          setTimeout (() => {
+            pelota.style.transform = `translateY(0px)`;
+          }, tiempo*1000)
+        }
+      </script>
+  </body>
+</html>
